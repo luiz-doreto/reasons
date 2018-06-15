@@ -36,11 +36,16 @@ export default class App extends Component {
     return (
       <Provider>
           <View style={styles.container}>
-              <Text>{this.state.msg}</Text>
+              <View style={styles.textContainer}>
+                  <Text style={styles.textStyle}>
+                      {this.state.msg}
+                  </Text>
+              </View>
               <FAB
+                  style={styles.fabStyle}
+                  dark
                   icon="favorite"
-                  onPress={this.getMessage}
-              />
+                  onPress={this.getMessage} />
           </View>
       </Provider>
     );
@@ -50,18 +55,19 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    padding: 15,
+  },
+  textContainer: {
+    flex: 1,
+    alignSelf: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  textStyle: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  fabStyle: {
+    backgroundColor: 'red'
+  }
 });
